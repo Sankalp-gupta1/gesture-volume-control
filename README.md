@@ -1,38 +1,37 @@
-# 🎛️ Gesture Volume Control using OpenCV & MediaPipe
+🎛️ Gesture Volume Control using OpenCV & MediaPipe
+Control your system volume using just your hand gestures via your webcam in real time. This project uses OpenCV, MediaPipe, and Pycaw to detect finger movements and dynamically adjust system volume — all running completely offline on your machine.
 
-Control your system's volume using hand gestures in real time via your webcam. Built with OpenCV, MediaPipe, and Pycaw.
+🚀 Features
+✋ Real-time Hand Tracking using webcam
 
----
+📏 Finger Distance Mapping: Thumb & index finger distance controls the volume
 
-## 🚀 Features
+🔊 Visual Feedback: Green line between fingers shows detection
 
-- ✋ Real-time gesture detection using webcam
-- 📏 Thumb & index finger distance maps to volume level
-- 🔊 Smooth volume control with visual feedback (line between fingers)
-- 🔐 Runs locally, no internet required
+🧠 No Internet Required: Fully offline & local
 
----
+💻 Windows OS Compatible (uses Pycaw API for volume control)
 
-## 🛠️ Tech Stack
+🛠️ Tech Stack
+Component	Description
+Python 3.x	Programming Language
+OpenCV	For real-time video frame capture
+MediaPipe	Google's ML framework for hand tracking
+Pycaw	Controls Windows volume programmatically
+ctypes, comtypes	For low-level Windows API access
 
-- Python 3.x
-- OpenCV
-- MediaPipe
-- Pycaw (Windows audio control)
-- ctypes, comtypes (for system-level API)
-
----
-
-## ⚙️ Installation
-
-```bash
-# Clone the repo
+⚙️ Installation Guide
+🔧 Step-by-step setup:
+bash
+Copy
+Edit
+# 1. Clone the repository
 git clone https://github.com/Sankalp-gupta1/gesture-volume-control.git
 cd gesture-volume-control
 
-# Create virtual environment (optional)
+# 2. (Optional) Create and activate virtual environment
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate      # On Windows
 
-# Install dependencies
+# 3. Install all required libraries
 pip install opencv-python mediapipe pycaw comtypes
