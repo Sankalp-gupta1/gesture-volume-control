@@ -20,15 +20,6 @@ MediaPipe	Google's ML framework for hand tracking
 Pycaw	Controls Windows volume programmatically
 ctypes, comtypes	For low-level Windows API access
 
-⚙️ Installation Guide
-🔧 Step-by-step setup:
-bash
-Copy
-Edit
-# 1. Clone the repository
-git clone https://github.com/Sankalp-gupta1/gesture-volume-control.git
-cd gesture-volume-control
-
 # 2. (Optional) Create and activate virtual environment
 python -m venv venv
 venv\Scripts\activate      # On Windows
