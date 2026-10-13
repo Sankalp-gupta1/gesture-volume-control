@@ -1,91 +1,58 @@
 # Gesture Volume Control
 
-A computer-vision prototype that maps **the distance between the thumb and index finger** to the system's master volume level in real time.
+A computer-vision project for controlling volume with a hand gesture.
 
-The application uses a webcam to detect hand landmarks and updates Windows audio volume through Pycaw.
+## Live browser demo
 
-## Features
+**https://gesture-volume-control-sankalp.vercel.app/**
 
-- Real-time webcam capture
-- MediaPipe hand landmark detection
-- Thumb and index-finger tracking
-- Finger-distance measurement
-- Distance-to-volume mapping
-- Windows master-volume control
-- Visual line between tracked fingertips
-- Fully local processing
+## Two versions in this repository
 
-## Tech Stack
+### 1. Original Windows version
 
-- Python
+`volumecontrol.py` uses:
+
 - OpenCV
 - MediaPipe
 - Pycaw
-- comtypes
-- Windows Core Audio API
+- Windows Core Audio
 
-## How It Works
+It can change the Windows system volume.
 
-```text
-Webcam frame
-    │
-    ▼
-MediaPipe hand detection
-    │
-    ▼
-Thumb tip + index tip coordinates
-    │
-    ▼
-Euclidean distance
-    │
-    ▼
-Normalize distance to 0.0–1.0
-    │
-    ▼
-Windows master volume
+### 2. Deployed web version
+
+The `web/` app uses:
+
+- browser webcam access,
+- MediaPipe Hands,
+- Web Audio API,
+- an in-page test tone.
+
+Browsers do not allow a website to change the computer's master system volume. Because of that security restriction, the deployed version controls only the audio created inside the page.
+
+The gesture logic is still real: thumb-to-index distance is measured from tracked hand landmarks and converted into a 0–100% audio level.
+
+## Privacy
+
+Webcam frames are processed in the browser and are not uploaded by this demo.
+
+## Run locally
+
+```bash
+cd web
+python -m http.server 8000
 ```
 
-## Requirements
+Open `http://localhost:8000`, click **Start camera**, and allow camera access.
 
-This project is designed for **Windows**, because Pycaw controls the Windows Core Audio API.
-
-Install dependencies:
+## Original Windows setup
 
 ```bash
 pip install opencv-python mediapipe pycaw comtypes
-```
-
-The current script also imports the Twilio client library, so if you run the file exactly as stored you may also need:
-
-```bash
-pip install twilio
-```
-
-The volume-control workflow itself does not require a real Twilio account.
-
-## Run
-
-Clone the repository:
-
-```bash
-git clone https://github.com/Sankalp-gupta1/gesture-volume-control.git
-cd gesture-volume-control
-```
-
-Run:
-
-```bash
 python volumecontrol.py
 ```
 
-Press `q` in the OpenCV window to exit.
-
-## Important Note
-
-The script is a learning/prototype implementation. Review the placeholder Twilio configuration and Python indentation before using it as a production-ready application.
-
 ## Author
 
-**Sankalp Gupta**
-
+Sankalp Gupta  
 GitHub: https://github.com/Sankalp-gupta1
