@@ -2,7 +2,7 @@
 
 ## Live browser demo
 
-**https://gesture-volume-control.vercel.app/**
+**https://gesture-volume-control-sankalp.vercel.app/**
 
 The original Python project controls Windows master volume. A normal website cannot change the operating system's master volume, so the hosted version safely applies the same **thumb-to-index pinch distance** idea to a generated demo tone inside the page.
 
@@ -23,7 +23,6 @@ A computer-vision project for controlling volume with a hand gesture.
 
 ## Live browser demo
 
-**https://gesture-volume-control-sankalp.vercel.app/**
 
 ## Two versions in this repository
 
