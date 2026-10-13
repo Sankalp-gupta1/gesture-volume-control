@@ -1,5 +1,24 @@
 # Gesture Volume Control
 
+## Live browser demo
+
+**https://gesture-volume-control.vercel.app/**
+
+The original Python project controls Windows master volume. A normal website cannot change the operating system's master volume, so the hosted version safely applies the same **thumb-to-index pinch distance** idea to a generated demo tone inside the page.
+
+The browser demo:
+
+- requests webcam permission
+- runs MediaPipe hand tracking locally in the browser
+- tracks thumb and index fingertips
+- converts pinch distance into a 0–100% volume value
+- visualizes the tracked fingertips
+- controls the demo audio level
+
+No video frames are uploaded by the app.
+
+---
+
 A computer-vision project for controlling volume with a hand gesture.
 
 ## Live browser demo
@@ -56,3 +75,13 @@ python volumecontrol.py
 
 Sankalp Gupta  
 GitHub: https://github.com/Sankalp-gupta1
+
+
+## Run the hosted-style demo locally
+
+```bash
+cd web
+python -m http.server 8000
+```
+
+Open `http://localhost:8000` in a modern browser and allow camera access.
