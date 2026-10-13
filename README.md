@@ -1,86 +1,97 @@
 # Gesture Volume Control
 
-## Live browser demo
+A computer-vision project for controlling volume with a hand gesture.
+
+## Live demo
 
 **https://gesture-volume-control-sankalp.vercel.app/**
 
-The original Python project controls Windows master volume. A normal website cannot change the operating system's master volume, so the hosted version safely applies the same **thumb-to-index pinch distance** idea to a generated demo tone inside the page.
+The browser demo tracks your hand with MediaPipe and converts the distance between the thumb tip and index fingertip into a 0–100% volume value.
 
-The browser demo:
+## What the live demo does
 
-- requests webcam permission
-- runs MediaPipe hand tracking locally in the browser
-- tracks thumb and index fingertips
-- converts pinch distance into a 0–100% volume value
-- visualizes the tracked fingertips
-- controls the demo audio level
+- asks for webcam permission,
+- detects one hand,
+- tracks thumb and index fingertips,
+- measures the distance between them,
+- maps the distance to a volume percentage,
+- controls a browser-generated test tone,
+- draws the hand landmarks on screen.
 
-No video frames are uploaded by the app.
+Webcam frames are processed in the browser and are not intentionally uploaded by this demo.
 
----
+## Important browser limitation
 
-A computer-vision project for controlling volume with a hand gesture.
+A normal website cannot change the computer's master system volume.
 
-## Live browser demo
+Because of that security restriction, the live version controls only audio generated inside the page.
 
+The original Python version is still included and can control Windows system volume.
 
-## Two versions in this repository
+## Original Windows version
 
-### 1. Original Windows version
+File:
 
-`volumecontrol.py` uses:
+```text
+volumecontrol.py
+```
 
+Main technologies:
+
+- Python
 - OpenCV
 - MediaPipe
 - Pycaw
 - Windows Core Audio
 
-It can change the Windows system volume.
-
-### 2. Deployed web version
-
-The `web/` app uses:
-
-- browser webcam access,
-- MediaPipe Hands,
-- Web Audio API,
-- an in-page test tone.
-
-Browsers do not allow a website to change the computer's master system volume. Because of that security restriction, the deployed version controls only the audio created inside the page.
-
-The gesture logic is still real: thumb-to-index distance is measured from tracked hand landmarks and converted into a 0–100% audio level.
-
-## Privacy
-
-Webcam frames are processed in the browser and are not uploaded by this demo.
-
-## Run locally
-
-```bash
-cd web
-python -m http.server 8000
-```
-
-Open `http://localhost:8000`, click **Start camera**, and allow camera access.
-
-## Original Windows setup
+Install:
 
 ```bash
 pip install opencv-python mediapipe pycaw comtypes
+```
+
+Run:
+
+```bash
 python volumecontrol.py
 ```
 
-## Author
+This version requires Windows and a webcam.
 
-Sankalp Gupta  
-GitHub: https://github.com/Sankalp-gupta1
-
-
-## Run the hosted-style demo locally
+## Run the web demo locally
 
 ```bash
 cd web
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000` in a modern browser and allow camera access.
+Open:
+
+```text
+http://localhost:8000
+```
+
+Then click **Start camera** and allow camera access.
+
+## Tech stack
+
+### Desktop
+- Python
+- OpenCV
+- MediaPipe
+- Pycaw
+
+### Web
+- HTML
+- CSS
+- JavaScript
+- MediaPipe Hands
+- Web Audio API
+- Vercel
+
+## Author
+
+**Sankalp Gupta**
+
+- GitHub: https://github.com/Sankalp-gupta1
+- LinkedIn: https://www.linkedin.com/in/sankalp-gupta-rishi-8617302b0/
